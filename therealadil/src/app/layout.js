@@ -1,14 +1,9 @@
-import Head from 'next/head';
-
-export default function Layout({ children }) {
+export default function RootLayout({ children }) {
     return (
-        <>
-            <Head>
-                <title>TheRealAdil</title>
-                <meta name="description" content="TheRealAdil" />
-                {/* Other meta tags can go here */}
-            </Head>
-            <main>{children}</main>
-        </>
+        <html lang="en"> {/* Add language attribute */}
+            <body>
+                <main>{children}</main>
+            </body>
+        </html>
     );
 }
