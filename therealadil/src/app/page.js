@@ -8,8 +8,24 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAttempts(prev => prev + 1);
-    setFeedback(`ACCESS DENIED [${attempts + 1}]`);
+    const nextAttempt = attempts + 1;
+    setAttempts(nextAttempt);
+
+    let message = `ACCESS DENIED [${nextAttempt}]`;
+
+    if (nextAttempt === 2) {
+      message += `\nUNAUTHORIZED ACCESS ATTEMPT DETECTED.`;
+    } else if (nextAttempt === 3) {
+      message += `\nLOCATION KNOWN. SYSTEM IS TRACKING MOVEMENT.`;
+    } else if (nextAttempt === 4) {
+      message += `\nREPEATED BREACH FLAGGED.\nAK IS WATCHING.`;
+    } else if (nextAttempt === 5) {
+      message += `\nINTRUSION PERSISTENT.\nDATA INTERCEPT IN PROGRESS.`;
+    } else if (nextAttempt >= 6) {
+      message += `\nFINAL NOTICE: YOU ARE BEING MONITORED.\nAK RUNS THIS DOMAIN.`;
+    }
+
+    setFeedback(message);
     setPassword('');
   };
 
@@ -128,7 +144,8 @@ export default function Home() {
               background: 'rgba(255,0,0,0.1)',
               border: '1px solid rgba(255,0,0,0.3)',
               borderRadius: '4px',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              whiteSpace: 'pre-line'
             }}>
               ⚠ {feedback}
             </div>
