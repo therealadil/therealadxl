@@ -62,7 +62,7 @@ export default function Home() {
           textTransform: 'uppercase',
           letterSpacing: '2px'
         }}>
-          🔒 SECURE ACCESS NODE
+          🔒 SECURE ACCESS NODE // XIDAL
         </h2>
         
         <form onSubmit={handleSubmit} style={{ 
